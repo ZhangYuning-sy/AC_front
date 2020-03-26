@@ -33,15 +33,15 @@
                 </el-card>
             </el-col>
 
-            <el-card :span="16">
+            <el-card :span="12">
                 <fieldset>
                     <legend>设备情况</legend>
                     <el-row :gutter="18" class="mgb20">
                         <el-col :span="8">
                             <el-card shadow="hover" :body-style="{padding: '0px',color:'black'}" >
                                 <div class="grid-content grid-con-1">
-                                    <div class="grid-cont-right">
-                                        <div>设备总数量</div>
+                                    <div class="grid-cont-right " >
+                                        <router-link to="/totalEquip" >设备总数量</router-link>
                                     </div>
                                 </div>
                             </el-card>
@@ -49,8 +49,8 @@
                         <el-col :span="8">
                             <el-card shadow="hover" :body-style="{padding: '0px'}" >
                                 <div class="grid-content grid-con-2">
-                                    <div class="grid-cont-right" >
-                                        <div>运行设备数量</div>
+                                    <div class="grid-cont-right" id="page2">
+                                        <router-link to="/operating" >运行设备数量</router-link>
                                     </div>
                                 </div>
                             </el-card>
@@ -58,8 +58,8 @@
                         <el-col :span="8">
                             <el-card shadow="hover" :body-style="{padding: '0px'}">
                                 <div class="grid-content grid-con-3">
-                                    <div class="grid-cont-right">
-                                        <div>异常设备数量</div>
+                                    <div class="grid-cont-right" id="page3">
+                                        <router-link to="/abnormal">异常设备数量</router-link>
                                     </div>
                                 </div>
                             </el-card>
@@ -133,29 +133,29 @@
                         </el-carousel-item>
                     </el-carousel>
                 </fieldset>
-                <fieldset>
-                    <legend>监测指标概览</legend>
-                    <el-row :gutter="20">
-                        <el-col :span="12">
-                            <el-card shadow="hover">
-                                <div class="content-title">折线图</div>
-                                <div id="chartColumn" style="width: 380px; height: 300px;">
-                                </div>
-                            </el-card>
-                        </el-col>
-                        <el-col :span="12">
-                            <el-card shadow="hover">
-                                <div class="content-title">饼状图</div>
-                                <div class="chart">
-                                    <div id="pieChart" :style="{width: '380px', height: '300px'}"></div>
-                                </div>
-                            </el-card>
-                        </el-col>
-                    </el-row>
-                </fieldset>
+
             </el-card>
         </el-row>
-
+        <fieldset>
+            <legend>监测指标概览</legend>
+            <el-row :gutter="20">
+                <el-col :span="12">
+                    <el-card shadow="hover">
+                        <div class="content-title">折线图</div>
+                        <div id="chartColumn" style="width: 380px; height: 300px;">
+                        </div>
+                    </el-card>
+                </el-col>
+                <el-col :span="12">
+                    <el-card shadow="hover">
+                        <div class="content-title">饼状图</div>
+                        <div class="chart">
+                            <div id="pieChart" :style="{width: '380px', height: '300px'}"></div>
+                        </div>
+                    </el-card>
+                </el-col>
+            </el-row>
+        </fieldset>
     </div>
 </template>
 
@@ -166,6 +166,7 @@
     //实例化组件
     export default {
         name: 'dashboard',
+
 
         data() {
             return {
@@ -198,10 +199,10 @@
                 ],
                 // 图片需要引入, 否则无法显示
                 imgList: [
-                    { id: 0, idView: require('D:/vue-manage-system/src/assets/img/3.jpg') },
-                    { id: 1, name: '详情', idView: require('D:/vue-manage-system/src/assets/img/2.jpg') },
-                    { id: 2, name: '推荐', idView: require('D:/vue-manage-system/src/assets/img/1.jpg') },
-                    { id: 3, name: '推荐', idView: require('D:/vue-manage-system/src/assets/img/4.jpg') }
+                    { id: 0, idView: require('../../assets/img/3.jpg') },
+                    { id: 1, name: '详情', idView: require('../../assets/img/2.jpg') },
+                    { id: 2, name: '推荐', idView: require('../../assets/img/1.jpg') },
+                    { id: 3, name: '推荐', idView: require('../../assets/img/4.jpg') }
                 ],
                 value:0,
                 data: [
@@ -288,6 +289,7 @@
         },
         mounted() {
             this.drawLine();
+
             this.$nextTick(function() {
                 //this.drawPie("pieReport");
             });
@@ -298,7 +300,7 @@
                 series: [{
                     name: '访问来源',
                     type: 'pie',
-                    radius: '55%',
+                    radius: '75%',
                     data: [{
                         value: 235,
                         name: '视频广告'

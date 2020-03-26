@@ -3,6 +3,10 @@ import Router from 'vue-router';
 
 Vue.use(Router);
 
+//所有权限通用路由表
+//如首页和登录页和一些不用权限的公用页面
+
+
 export default new Router({
     routes: [
         {
@@ -31,8 +35,23 @@ export default new Router({
                 },
                 {
                     path: '/KnowledgeBase',
-                    component: () => import(/* webpackChunkName: "table" */ '../components/page/KnowledgeBase.vue'),
+                    component: () => import(/* webpackChunkName: "KnowledgeBase" */ '../components/page/KnowledgeBase.vue'),
                     meta: { title: '知识库' }
+                },
+                {
+                    path: '/totalEquip',
+                    component: () => import(/* webpackChunkName: "totalEquip" */ '../components/page/TotalEquipment.vue'),
+                    meta: { title: '设备总数量' }
+                },
+                {
+                    path: '/operating',
+                    component: () => import(/* webpackChunkName: "operating" */ '../components/page/OperatingEquipment.vue'),
+                    meta: { title: '运行设备数量' }
+                },
+                {
+                    path: '/abnormal',
+                    component: () => import(/* webpackChunkName: "abnormal" */ '../components/page/AbnormalEquipment.vue'),
+                    meta: { title: '运行设备数量' }
                 },
                 {
                     path: '/tabs',
@@ -59,56 +78,66 @@ export default new Router({
                 {
                     // 水产养殖实时数据管理
                     path: '/watereditor',
-                    component: () => import(/* webpackChunkName: "editor" */ '../components/page/WaterEditor.vue'),
+                    component: () => import(/* webpackChunkName: "watereditor" */ '../components/page/WaterEditor.vue'),
                     meta: { title: '实时数据管理' }
                 },
                 {
                     // 水产养殖历史数据管理
                     path: '/watermarkdown',
-                    component: () => import(/* webpackChunkName: "markdown" */ '../components/page/WaterMarkdown.vue'),
+                    component: () => import(/* webpackChunkName: "watermarkdown" */ '../components/page/WaterMarkdown.vue'),
                     meta: { title: '历史数据管理' }
                 },
                 {
                     // 海水稻实时数据管理
                     path: '/seaeditor',
-                    component: () => import(/* webpackChunkName: "editor" */ '../components/page/SeaEditor.vue'),
+                    component: () => import(/* webpackChunkName: "seaeditor" */ '../components/page/SeaEditor.vue'),
                     meta: { title: '实时数据管理' }
                 },
                 {
                     // 海水稻历史数据管理
                     path: '/seamarkdown',
-                    component: () => import(/* webpackChunkName: "markdown" */ '../components/page/SeaMarkdown.vue'),
+                    component: () => import(/* webpackChunkName: "seamarkdown" */ '../components/page/SeaMarkdown.vue'),
                     meta: { title: '历史数据管理' }
                 },
                 {
                     // GrowthModel生长监测模型
                     path: '/GrowthModel',
-                    component: () => import(/* webpackChunkName: "model" */ '../components/page/GrowthModel.vue'),
+                    component: () => import(/* webpackChunkName: "/GrowthModel" */ '../components/page/GrowthModel.vue'),
                     meta: { title: '生长监测模型' }
                 },
                 {
                     // EnvirWarnModel环境监测预警模型
                     path: '/EnvirWarnModel',
-                    component: () => import(/* webpackChunkName: "model" */ '../components/page/EnvirWarnModel.vue'),
+                    component: () => import(/* webpackChunkName: "EnvirWarnModel" */ '../components/page/EnvirWarnModel.vue'),
                     meta: { title: '环境监测预警模型' }
                 },
                 {
                     // DeviceControlModel设备智能调控模型
                     path: '/DeviceControlModel',
-                    component: () => import(/* webpackChunkName: "model" */ '../components/page/DeviceControlModel.vue'),
+                    component: () => import(/* webpackChunkName: "DeviceControlModel" */ '../components/page/DeviceControlModel.vue'),
                     meta: { title: '设备智能调控模型' }
                 },
                 {
                     // DiswarnDiagModel病害预警诊断模型
                     path: '/DiswarnDiagModel',
-                    component: () => import(/* webpackChunkName: "model" */ '../components/page/DiswarnDiagModel.vue'),
+                    component: () => import(/* webpackChunkName: "DiswarnDiagModel" */ '../components/page/DiswarnDiagModel.vue'),
                     meta: { title: '病害预警诊断模型' }
                 },
                 {
                     // KnowledgeGraph知识图谱
                     path: '/KnowledgeGraph',
-                    component: () => import(/* webpackChunkName: "model" */ '../components/page/KnowledgeGraph.vue'),
+                    component: () => import(/* webpackChunkName: "KnowledgeGraph" */ '../components/page/KnowledgeGraph.vue'),
                     meta: { title: '知识图谱' }
+                },
+                {
+                    path:'/manage',
+                    component: () => import(/* webpackChunkName: "UserControl" */ '../components/page/UserControl.vue'),
+                    meta: { title: '用户信息管理' }
+                },
+                {
+                    path:'/baseform',
+                    component: () => import(/* webpackChunkName: "baseform" */ '../components/page/BaseForm.vue'),
+                    meta: { title: '个人信息管理' }
                 },
                 {
                     // 图片上传组件
@@ -119,7 +148,7 @@ export default new Router({
                 {
                     // vue-schart组件
                     path: '/charts',
-                    component: () => import(/* webpackChunkName: "chart" */ '../components/page/BaseCharts.vue'),
+                    component: () => import(/* webpackChunkName: "charts" */ '../components/page/BaseCharts.vue'),
                     meta: { title: 'schart图表' }
                 },
                 {
@@ -131,7 +160,7 @@ export default new Router({
                 {
                     // 拖拽Dialog组件
                     path: '/dialog',
-                    component: () => import(/* webpackChunkName: "dragdialog" */ '../components/page/DragDialog.vue'),
+                    component: () => import(/* webpackChunkName: "dialog" */ '../components/page/DragDialog.vue'),
                     meta: { title: '拖拽弹框' }
                 },
                 {
@@ -172,5 +201,6 @@ export default new Router({
             path: '*',
             redirect: '/404'
         }
-    ]
+    ],
 });
+

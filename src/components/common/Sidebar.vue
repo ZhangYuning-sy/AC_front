@@ -76,6 +76,25 @@ export default {
                     ]
                 },
                 {
+                    icon: 'el-icon-lx-global',
+                    index:'4',
+                    title: '设备现状',
+                    subs: [
+                        {
+                            index: 'totalEquip',
+                            title: '设备总数量'
+                        },
+                        {
+                            index: 'operating',
+                            title: '运行设备数量'
+                        },
+                        {
+                            index: 'abnormal',
+                            title: '异常设备数量'
+                        }
+                    ]
+                },
+                {
                     icon: 'el-icon-lx-copy',
                     index: 'tabs',
                     title: '消息界面'
@@ -131,7 +150,7 @@ export default {
                 },
                 {
                     icon: 'el-icon-tickets',
-                    index: '8',
+                    index: 5,
                     title: '模型分析',
                     subs: [
                         {
@@ -155,6 +174,16 @@ export default {
                             title: '知识图谱'
                         }
                     ]
+                },
+                {
+                    icon: 'el-icon-lx-lock',
+                    index:'manage',
+                    title: '用户管理'
+                },
+                {
+                    icon: 'el-icon-lx-calendar',
+                    index:'baseform',
+                    title: '个人信息管理'
                 },
                 {
                     icon: 'el-icon-lx-emoji',

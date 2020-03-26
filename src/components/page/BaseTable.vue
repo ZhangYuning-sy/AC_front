@@ -21,6 +21,46 @@
                 </el-select>
                 <el-input v-model="query.name" placeholder="用户名" class="handle-input mr10"></el-input>
                 <el-button type="primary" icon="el-icon-search" @click="handleSearch">搜索</el-button>
+                <!--日期时间-->
+                <!--<el-col :span="10">
+                    <el-date-picker
+                            type="date"
+                            placeholder="选择日期"
+                            v-model="date1"
+                            value-format="yyyy-MM-dd"
+                            style="width: 25%;"
+                    ></el-date-picker>
+                </el-col>
+                <el-col class="line" :span="2">-</el-col>
+                <el-col :span="10">
+                    <el-time-picker
+                            placeholder="选择时间"
+                            v-model="date2"
+                            style="width: 25%;"
+                    ></el-time-picker>
+                </el-col>-->
+                <!--日期时间结束-->
+
+                <!--日期时间-->
+                <Breadcrumb separator="-" :span="2">
+                    <BreadcrumbItem to="/">
+                         <el-date-picker
+                            type="date"
+                            placeholder="选择日期"
+                            v-model="date1"
+                            value-format="yyyy-MM-dd"
+                            style="width: 25%;"
+                ></el-date-picker>
+                    </BreadcrumbItem>
+                    <BreadcrumbItem>
+                         <el-time-picker
+                            placeholder="选择时间"
+                            v-model="date2"
+                            style="width: 25%;"
+                          ></el-time-picker>
+                    </BreadcrumbItem>
+                </Breadcrumb>
+                <!--日期时间结束-->
             </div>
             <el-table
                 :data="tableData"
@@ -107,6 +147,8 @@ export default {
     name: 'basetable',
     data() {
         return {
+            date1:'',
+            date2:'',
             query: {
                 address: '',
                 name: '',
@@ -188,6 +230,10 @@ export default {
 </script>
 
 <style scoped>
+    .breadcrumb-separator{
+        color: #ff5500;
+        padding: 0 5px;
+    }
 .handle-box {
     margin-bottom: 20px;
 }
